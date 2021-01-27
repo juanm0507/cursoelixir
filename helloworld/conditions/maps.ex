@@ -9,6 +9,12 @@ IO.puts map[:c] # nil
 %{:c => a, :a => a}  = %{:a => 5, 2 => true} # thorw error
 %{}  = %{:a => 5, 2 => true} # a = true , b = 5
 
+key = 5
+map = %{:a => true, key => :ok}
+IO:puts map[key] # hello
+%{^key => valu} = map # valur = "hello"
+IO.puts value # hello
+
 
 # Operations
 
