@@ -1,0 +1,22 @@
+map = %{:a => 5,2 => "hello", true => :ok} # %{:a => ,2 => "hello", true => :ok}
+IO.puts "map = %{:a => ,2 => "hello", true => :ok}"
+
+map = %{:a => 5,2 => "hello", 2 => :ok} # %{2 => "hello", a => :ok}
+IO.puts map[:c] # nil
+
+%{2 => b, :a => a}  = %{:a => 5, 2 => true} # a = true , b = 5
+%{:a => a, :a => a}  = %{:a => 5, b => 2} # a = 5
+%{:c => a, :a => a}  = %{:a => 5, 2 => true} # thorw error
+%{}  = %{:a => 5, 2 => true} # a = true , b = 5
+
+
+# Operations
+
+map = %{:a => 5,2 => "hello", true => :ok}
+IO.puts Map.get(map, :a) #5
+
+map2 = Map.get(map, :c, 4) # %{2 => "hello",:a => 5,:c => 4,true =>:ok}
+IO.puts (map2 == map) # false
+
+map3 = Map.get(map2, :c, false) #  %{2 => "hello",:a => 5,:c => false,true =>:ok}
+IO.puts (map2 == map3) #false
