@@ -1,0 +1,12 @@
+f = &(3 * &1 + 1)
+odd? = &(rem(&1,2) == 1)
+odd?.(f.(4))
+odd?.(f.(5))
+5 |> f.() |> odd?.()
+g = &(&1 * &2 + 1)
+odd? .(f.(g.(5, 3)))
+5 |> g.(3) |> f.() |> ood?.()
+5 |> g.(7) |> f.() |> ood?.()
+5 |> IO.puts
+'hello' |> IO.inspect(charLists: :as_Lists)
+'hello' |> IO.inspect()
