@@ -13,8 +13,9 @@ defmodule MyMapReduce do
 
   #defp mapp([], acc, _), do: acc
   #defp mapp([h | t], acc, transform), do: mapp(t, acc ++ [transform.(h)], transform)
-  def filter(List, condition?) do
-     Enum.filter(List, &(rem(&1, 2) == 0))
+  def filter(list, condition?) do
+     #Enum.filter(list, &(rem(&1, 2) == 0))
+     reduce(list, [], &(if condition?.(&1), do: &2 ++ [&1], else: &2))
   end
 
   def reduce(list, acc, action) when is_list(list) and is_function(action, 2) do
@@ -25,4 +26,4 @@ defmodule MyMapReduce do
   defp reducep([h | t], acc, action), do: reducep(t, action.(h, acc),  action)
 end
 
-IO.inspect(MyMapReduce.filter([1 , 2, 3, 4, 5]))
+#IO.inspect(MyMapReduce.filter([1 , 2, 3, 4, 5]))

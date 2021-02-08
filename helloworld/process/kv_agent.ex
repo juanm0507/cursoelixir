@@ -73,3 +73,8 @@ KV.update(kv, :hello, "world")
 
 value = KV.read(kv, :hello)
 IO.inspect value
+
+####
+{:ok, agent} = Agent.start_link fn -> 123 end
+IO.puts Agent.get_and_update(agent, fn state -> {state - 5, state + 1}) # 118
+IO.puts Agent.get(agent, fn x -> x end)# 124

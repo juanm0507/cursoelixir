@@ -16,5 +16,5 @@ end
 
 ListOperations.sum([])
 ListOperations.sum([2, 5, 20])
-ListOperations.sum([2, 5, 20, -9])
+ListOperations.sum([2, 5, 20, -10])
 #Enum.at(list, index, default) # nil

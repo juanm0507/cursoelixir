@@ -8,11 +8,13 @@ defmodule SumAccumulate do
   defp sump(i,suma,list,listr) do
     cond do
       length(list) == 0 -> 0
+      #i < length(list) -> sump(i + 1,suma + Enum.at(list,i),list,listr ++ [suma])
       i < length(list) -> sump(i + 1,suma + Enum.at(list,i),list,listr ++ [suma])
+
       true ->  listr
     end
   end
 end
 
 SumAccumulate.sum([])
-SumAccumulate.sum([2, 5, 20])
+SumAccumulate.sum([2, 5, 20, 7])
